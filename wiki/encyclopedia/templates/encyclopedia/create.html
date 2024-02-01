@@ -1,0 +1,26 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Create a Page
+{% endblock %}
+
+{% block body %}
+    <h1>Create New Page:</h1>
+    {% if message %}
+            <p style="font-size: 21px; color:rgb(186, 55, 55);">{{ message }}</p>
+    {% endif %}
+
+    <p>Please note that your contribution text should be with 
+        <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">
+            Markdown</a> rules applied.</p>
+    <form action="{% url 'create' %}" method="post">
+        {% csrf_token %}
+        <h4>Title:</h4>
+        <div class="entry_form">
+            {{ entryform.as_p }}
+        </div>
+        <br><br><br>
+        <input style="font-size: 21px;" type="submit" value="Save page">
+    </form>
+
+{% endblock %}

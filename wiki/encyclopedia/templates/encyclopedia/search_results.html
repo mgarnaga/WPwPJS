@@ -1,0 +1,20 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Search Results
+{% endblock %}
+
+{% block body %}
+
+    {% if entries %}
+    <h2>No exact page with name "{{ keyword }}" exist. Here is what we found:</h2>
+    <ul>
+            {% for entry in entries %}
+                <li><a href="{% url 'entry' entry %}">{{ entry }}</a></li>
+            {% endfor %}
+    </ul>
+    {% else %}
+        <h2>There is nothing found in the encyclopedia with the name "{{ keyword }}".</h2>
+    {% endif %}
+
+{% endblock %}

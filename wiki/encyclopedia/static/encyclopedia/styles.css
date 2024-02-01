@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    background-color: white;
+}
+
+code {
+    white-space: pre;
+}
+
+h1, h2 {
+    margin-top: 0px;
+    padding-top: 20px;
+}
+
+.entry_form {
+    height: 540px; 
+    width: 80%;
+    font-size: 16px;
+}
+
+.main {
+    padding: 10px;
+}
+
+.search {
+    width: 100%;
+    font-size: 15px;
+    line-height: 15px;
+}
+
+.sidebar {
+    background-color: #f0f0f0;
+    height: 100vh;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    margin-top: 5px;
+}
+
+.edit {
+    text-align: right;
+    padding: 30px;
+    padding-right: 70px;
+    margin: 20px;
+    font-size: 18px;
+}
