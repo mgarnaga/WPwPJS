@@ -46,6 +46,11 @@ def index(request):
 
 def entry(request, name):
     entry = util.get_entry(name)
+    if not entry:
+        return render(request, "encyclopedia/search_results.html", {
+                    "keyword":name,
+                    "entries":None
+                })
     conv_entry = markdowner.convert(entry)
     return render(request, "encyclopedia/entry.html", {
         "entry": conv_entry,
