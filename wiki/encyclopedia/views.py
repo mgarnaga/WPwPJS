@@ -3,6 +3,9 @@ from django import forms
 
 from . import util
 import random
+from markdown2 import Markdown
+
+markdowner = Markdown()
 
 class NewSearchForm(forms.Form):
     search = forms.CharField(label='', widget=forms.TextInput(attrs={
@@ -43,8 +46,9 @@ def index(request):
 
 def entry(request, name):
     entry = util.get_entry(name)
+    conv_entry = markdowner.convert(entry)
     return render(request, "wiki/entry.html", {
-        "entry": entry,
+        "entry": conv_entry,
         "name": name
     })
 
