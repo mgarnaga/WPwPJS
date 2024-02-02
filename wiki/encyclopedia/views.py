@@ -47,7 +47,7 @@ def index(request):
 def entry(request, name):
     entry = util.get_entry(name)
     conv_entry = markdowner.convert(entry)
-    return render(request, "wiki/entry.html", {
+    return render(request, "encyclopedia/entry.html", {
         "entry": conv_entry,
         "name": name
     })
@@ -93,11 +93,11 @@ def edit_page(request, name):
             util.save_entry(title, content)
             return entry(request, title)
         else:
-            return render(request, "wiki/edit.html", {
+            return render(request, "encyclopedia/edit.html", {
                 "entryform":entry_form,
                 "name":name
             })
-    return render(request, "wiki/edit.html", {
+    return render(request, "encyclopedia/edit.html", {
         "entryform":form,
         "name":name
     })
